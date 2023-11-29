@@ -1,0 +1,10 @@
+name: Update release
+
+on: repository_dispatch
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.event.client_payload.tar-path }}:${{ github.event.client_payload.tar-sha }}"
+
