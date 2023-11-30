@@ -3,8 +3,20 @@ name: Update release
 on: repository_dispatch
 
 jobs:
-  echo:
+  replace:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ github.event.client_payload.tar-path }}:${{ github.event.client_payload.tar-sha }}"
+      - name: Checkout
+        uses: actions/checkout@v3
+ 
+      
+      - name: Replace
+        run: |
+          sed -i 's|\(url.*"\).*\("\)|\1${{ github.event.client_payload.tar-path }}\2|g' ${{ github.event.client_payload.formula }}.rb
+          sed -i 's|\(sha256.*"\).*\("\)|\1${{ github.event.client_payload.tar-sha }}\2|g' ${{ github.event.client_payload.formula }}.rb
+          sed -i 's|\(version.*"\).*\("\)|\1${{ github.event.client_payload.version }}\2|g' ${{ github.event.client_payload.formula }}.rb
+
+      - name: Result
+        run: cat ${{ github.event.client_payload.formula }}.rb
+
 
