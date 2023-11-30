@@ -16,7 +16,13 @@ jobs:
           sed -i 's|\(sha256.*"\).*\("\)|\1${{ github.event.client_payload.tar-sha }}\2|g' ${{ github.event.client_payload.formula }}.rb
           sed -i 's|\(version.*"\).*\("\)|\1${{ github.event.client_payload.version }}\2|g' ${{ github.event.client_payload.formula }}.rb
 
-      - name: Result
-        run: cat ${{ github.event.client_payload.formula }}.rb
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "Max Hill"
+          git config --global user.email "max@hilloco.se"
+
+          git add -A
+          git commit -m "${{ github.event.client_payload.formula }} version ${{ github.event.client_payload.version }}"
+          git push
 
 
