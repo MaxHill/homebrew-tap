@@ -3,7 +3,6 @@ class NotesCli < Formula
   homepage "https://github.com/MaxHill/cli-notes"
   url "https://github.com/MaxHill/cli-notes/releases/download/v0.15.0/notes-cli.tar.gz"
   sha256 "1aebbacdc70b2f62b0e797f908be22a31914dee623fc53764bb9c3beba0b1cfc"
-  version "0.0.13"
   license "MIT"
 
   def install
