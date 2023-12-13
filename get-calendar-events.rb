@@ -1,10 +1,10 @@
 class GetCalendarEvents < Formula
   desc "Prints calendar event between two dates as json"
   homepage "https://github.com/MaxHill/get-calendar-events"
-  url "https://github.com/MaxHill/get-calendar-events/releases/download/v0.1.0/get-calendar-events.tar.gz"
-  sha256 "07dc64600b603afdc84f536d114f7a4f945e52f5c340aaeae866ffd1df4d1efb"
+  url "https://github.com/MaxHill/get-calendar-events/releases/download/v0.2.0/get-calendar-events.tar.gz"
+  sha256 "6aeaff0342bd7d1f533eb3531c590f0cf51dd1d341b27b2affe4e1b20a8ae8fa"
   license "MIT"
-  version "v0.1.0"
+  version "v0.2.0"
 
   def install
     bin.install "get-calendar-events"
